@@ -22,7 +22,7 @@
           <li><%= link_to 'Login', new_user_session_path %></li>
 
           <% end %>
-          <li> <%= link_to(destroy_user_session_path, method: :delete)  do %>
+          <li> <%= link_to(product_carts_path(1))  do %>
             <i class="material-icons">shopping_cart</i>
             <% end %>
           </li>

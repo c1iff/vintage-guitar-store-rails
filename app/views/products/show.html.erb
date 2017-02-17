@@ -16,7 +16,7 @@
   <div class="col m4">
     <p><%= @product.description %></p>
     <h5 class="thin"><strong>$ <%= @product.price %></strong></h5>
-    <%= link_to "Add to Cart", edit_product_path(@product), class: 'btn amber', style: 'width: 100%;' %>
+    <%= link_to "Add to Cart", product_carts_path(@product), class: 'btn amber', style: 'width: 100%;', method: 'post' %>
   </div>
 </div>
 <% if @comment %>
@@ -31,7 +31,8 @@
   <div class="row">
     <div class="col l12">
       <div class="card-panel white">
-        <p><strong><%= comment.user.user_name %></strong><p>
+        <h6><strong><%= comment.user.user_name %></strong></h6>
+        <div class="divider"></div>
         <p><%= comment.content %></p>
         <p class="right-align"><%= comment.created_at %></p>
         <% if current_user.admin %>
