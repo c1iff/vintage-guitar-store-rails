@@ -1,15 +1,22 @@
-<h1 class="center-align">All Products</h1>
+<div class="section">
+  <% if current_user.admin %>
+  <%= link_to "Add a Product", new_product_path, class: 'btn green right' %>
+  <% end %>
 
-<ul>
+</div>
+<div class="section">
+  <h1 class="center-align thin">All Products</h1>
+</div>
+
+
+<div class="row">
   <% @products.each do |product| %>
-  <%= link_to(product_path(product)) do %>
-    <li>  <%= product.name %>  </li>
-
-    <%= image_tag(product.picture.url(:thumb)) %>
+    <%= link_to(product_path(product)) do %>
+    <div class="col m4 ceneter-align">
+      <h5 class="black-text">  <%= product.name %>  </h5>
+      <%= image_tag(product.picture.url(:thumb), class: 'responsive-img') %>
+      <p class="black-text">$ <%= product.price %> </p>
+    </div>
     <% end %>
   <% end %>
-</ul>
-
-<% if current_user.admin %>
-  <%= link_to "Add a Picture", new_product_path, class: 'btn' %>
-<% end %>
+</div>

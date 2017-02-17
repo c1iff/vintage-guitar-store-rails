@@ -18,18 +18,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  def upvote
-    @comment = Comment.find(params[:id])
-    @comment.upvote_by current_user
-    redirect_to :back
-  end
-
-  def downvote
-    @comment = Comment.find(params[:id])
-    @comment.downvote_by current_user
-    redirect_to :back
-  end
-
   def edit
     @product = Product.find(params[:product_id])
     @comment = Comment.find(params[:id])

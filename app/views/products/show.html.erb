@@ -1,18 +1,30 @@
-<h4>  <%= @product.name %>  </h4>
+<div class="section">
+  <h4 class="center-align"><%= @product.name %></h4>
+</div>
+
+<% if current_user.admin %>
+  <%= link_to "Edit", edit_product_path(@product), class: 'btn yellow right', style: 'margin-left: 10px;' %>
+  <%= link_to "Delete", product_path(@product), class: 'btn red right',
+                                :data => {:confirm => "Are you sure?",
+                                :method => "delete"}  %>
+<% end %>
 
 <div class="row">
   <div class="col m8">
     <%= image_tag(@product.picture.url(:full)) %>
   </div>
   <div class="col m4">
-    <p>
-      <%= @product.description %>
-    </p>
+    <p><%= @product.description %></p>
+    <h5 class="thin"><strong>$ <%= @product.price %></strong></h5>
+    <%= link_to "Add to Cart", edit_product_path(@product), class: 'btn amber', style: 'width: 100%;' %>
   </div>
 </div>
 <% if @comment %>
   <%= render 'comment_form' %>
+<% else %>
+  <%= link_to "Add a Comment", new_product_comment_path(@product), class: 'btn' %>
 <% end %>
+
 
 <h4 class="center-align">Comments</h4>
 <% @comments.each do |comment| %>
@@ -25,5 +37,4 @@
     </div>
   </div>
 <% end %>
-
-<%= link_to "Add a Comment", new_product_comment_path(@product), class: 'btn' %>
+<br>

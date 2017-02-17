@@ -42,7 +42,7 @@ class ProductsController < ApplicationController
     @user = User.find(current_user.id)
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to :back
+    redirect_to products_path
   end
 
   private
