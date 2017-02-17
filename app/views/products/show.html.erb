@@ -1,20 +1,26 @@
 <h4>  <%= @product.name %>  </h4>
 
-<%= image_tag(@product.picture.url(:full)) %>
-
-
+<div class="row">
+  <div class="col m8">
+    <%= image_tag(@product.picture.url(:full)) %>
+  </div>
+  <div class="col m4">
+    <p>
+      <%= @product.description %>
+    </p>
+  </div>
+</div>
+<% if @comment %>
+  <%= render 'comment_form' %>
+<% end %>
 
 <h4 class="center-align">Comments</h4>
 <% @comments.each do |comment| %>
   <div class="row">
     <div class="col l12">
       <div class="card-panel white">
-        <span><strong><%= comment.user.email %></strong> - <%= comment.content %>
-        </span>
-        <span><%= link_to "Edit", edit_picture_comment_path(@picture, comment) %>
-        <%= link_to "Delete", picture_comment_path(@picture, comment),
-                                :data => {:confirm => "Are you sure?",
-                                :method => "delete"} %></span>
+        <p><strong><%= comment.user.user_name %></strong><p>
+        <p><%= comment.content %></p>
       </div>
     </div>
   </div>

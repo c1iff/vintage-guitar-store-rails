@@ -1,0 +1,8 @@
+<%= form_for [@product, @comment] do |f| %>
+  <%= f.text_area :content, class: 'materialize-textarea', placeholder: "Enter Comment"%>
+  <%= f.text_field :user_id, type: 'hidden', value: current_user.id %>
+
+  <br>
+
+  <%= f.submit class: 'btn' %>
+<% end %>

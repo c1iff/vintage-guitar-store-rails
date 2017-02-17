@@ -2,7 +2,9 @@ class CommentsController < ApplicationController
 
   def new
     @product = Product.find(params[:product_id])
+    @comments = @product.comments
     @comment = Comment.new
+    render '/products/show.html.erb/'
   end
 
   def create
