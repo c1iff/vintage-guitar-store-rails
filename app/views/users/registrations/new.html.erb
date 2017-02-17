@@ -1,16 +1,22 @@
 <h2>Sign up</h2>
 
 <div class="row">
+  <div class="col m3"></div>
   <div class="col m6">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
-    <div class="form-group">
-        <%= f.label :avatar, class: 'col s2 control-label'  %>
-        <div class="col m6">
-            <%= f.file_field :avatar %>
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>Add Profile Picture</span>
+        <%= f.file_field :avatar %>
+      </div>
+      <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
         </div>
     </div>
+
+
     <br>
     <div class="field">
       <%= f.label :email %><br />

@@ -3,8 +3,8 @@
 </div>
 
 <% if current_user.admin %>
-  <%= link_to "Edit", edit_product_path(@product), class: 'btn yellow right', style: 'margin-left: 10px;' %>
-  <%= link_to "Delete", product_path(@product), class: 'btn red right',
+  <%= link_to "Edit Product", edit_product_path(@product), class: 'btn yellow right', style: 'margin-left: 10px;' %>
+  <%= link_to "Delete Product", product_path(@product), class: 'btn red right',
                                 :data => {:confirm => "Are you sure?",
                                 :method => "delete"}  %>
 <% end %>
@@ -33,6 +33,12 @@
       <div class="card-panel white">
         <p><strong><%= comment.user.user_name %></strong><p>
         <p><%= comment.content %></p>
+        <p class="right-align"><%= comment.created_at %></p>
+        <% if current_user.admin %>
+          <%= link_to "Delete Comment", product_comment_path(@product, comment), class: 'btn red',
+                                        :data => {:confirm => "Are you sure?",
+                                        :method => "delete"}  %>
+        <% end %>
       </div>
     </div>
   </div>

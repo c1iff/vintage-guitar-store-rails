@@ -12,10 +12,14 @@
 <div class="row">
   <% @products.each do |product| %>
     <%= link_to(product_path(product)) do %>
-    <div class="col m4 ceneter-align">
-      <h5 class="black-text">  <%= product.name %>  </h5>
-      <%= image_tag(product.picture.url(:thumb), class: 'responsive-img') %>
-      <p class="black-text">$ <%= product.price %> </p>
+    <div class="col m4">
+      <h5 class="black-text center-align">  <%= product.name %>  </h5>
+      <div class="center-align">
+        <%= image_tag(product.picture.url(:thumb), class: 'center-align') %>
+
+      </div>
+      <p class="black-text center-align"><strong>$ <%= product.price %></strong></p>
+      <div class="divider"></div>
     </div>
     <% end %>
   <% end %>

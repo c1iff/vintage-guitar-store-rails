@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @comments = Comment.all
+    @comments = @product.comments
   end
 
   def new

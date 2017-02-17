@@ -2,5 +2,6 @@ require 'rails_helper'
 
 describe User do
   it { should have_many :comments }
-  it { should have_many(:products).through :comments }
+  it { should have_many :carts }
+  it { should have_many(:products).through :carts }
 end
