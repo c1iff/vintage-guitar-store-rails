@@ -1,0 +1,15 @@
+<h1 class="center-align">All Products</h1>
+
+<ul>
+  <% @products.each do |product| %>
+  <%= link_to(product_path(product)) do %>
+    <li>  <%= product.name %>  </li>
+
+    <%= image_tag(product.picture.url(:thumb)) %>
+    <% end %>
+  <% end %>
+</ul>
+
+<% if current_user.admin %>
+  <%= link_to "Add a Picture", new_product_path, class: 'btn' %>
+<% end %>

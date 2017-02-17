@@ -1,0 +1,18 @@
+<%= form_for @product do |f| %>
+  <%= f.text_field :name, placeholder: "Enter Product Name"%>
+  <%= f.text_field :description, placeholder: "Enter Description"%>
+  <%= f.text_field :price, placeholder: "Enter the Price"%>
+
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>Add Picture</span>
+      <%= f.file_field :picture %>
+    </div>
+    <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+  </div>
+  <br>
+
+  <%= f.submit class: 'btn' %>
+<% end %>
