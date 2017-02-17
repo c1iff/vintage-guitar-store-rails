@@ -38,11 +38,11 @@ class CartsController < ApplicationController
   #   end
   # end
   #
-  # def destroy
-  #   @comment = Comment.find(params[:id])
-  #   @comment.delete
-  #   redirect_to :back
-  # end
+  def destroy
+    @cart = Cart.find(params[:id])
+    @cart.delete
+    redirect_to :back
+  end
 
 private
   def comment_params

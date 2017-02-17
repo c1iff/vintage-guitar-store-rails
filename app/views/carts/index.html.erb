@@ -13,6 +13,7 @@
         <%= image_tag(product.picture.url(:thumb), class: 'center-align') %>
       </div>
       <p class="black-text center-align"><strong>$ <%= product.get_price %></strong></p>
+
       <div class="divider"></div>
     </div>
     <% end %>
@@ -22,4 +23,4 @@
   <h4>Subtotal: $ <%= @sub_total %> </h4>
 </div>
 <%= link_to "Continue Shopping", products_path, class: 'btn' %>
-<%= link_to "Checkout", "/", class: 'btn amber' %>
+<%= link_to "Checkout", checkout_path, class: 'btn amber' %>
