@@ -18,22 +18,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit
-    @product = Product.find(params[:product_id])
-    @comment = Comment.find(params[:id])
-  end
-
-  def update
-    @product = Product.find(params[:product_id])
-    @comment = Comment.find(params[:id])
-    @comment.update(comment_params)
-    if @comment.save
-      redirect_to product_path(@product)
-    else
-      render :edit
-    end
-  end
-
   def destroy
     @comment = Comment.find(params[:id])
     @comment.delete
